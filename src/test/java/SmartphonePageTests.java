@@ -15,19 +15,17 @@ public class SmartphonePageTests extends BaseTest {
         Mocks.textFileMock(testResults);
     }
 
-    @Ignore
-    @Test
+/*    @Test
     public void getAllTopSellersOnPageTest(){
         Map testResults = TestMethods.getAllTopSellerNamesPricesOnPage(driver, testUrl, 3);
         Mocks.excelFileMock(testResults);
-    }
+    }*/
 
-    @Ignore
-    @Test
+/*    @Test
     public void getNamesInPriceRangeTest(){
         Map testResults = TestMethods.getNamesInPriceRange(driver, testUrl,5, 3000, 6000);
         Mocks.excelFileMock(testResults);
-    }
+    }*/
 
     @Test
     public void getTopSellerAndNamesInPriceRangeTest(){
