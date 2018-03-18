@@ -9,7 +9,7 @@ public class BaseTest {
 
     @BeforeClass
     public static void setUp(){
-        System.setProperty("webdriver.chrome.driver", "webdrivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "webdrivers\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
