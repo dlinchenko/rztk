@@ -7,7 +7,7 @@ public class DetergentPageTest extends BaseTest{
     private String testUrl = "https://rozetka.com.ua/ua/sredstva-dlya-stirki4632103/c4632103/page=%d/";
 
     @Test
-    public void getNamesInPriveRangeTest(){
+    public void getNamesInPriceRangeTest(){
         Map testResults = TestMethods.getNamesInPriceRange(driver,testUrl,5,100, 300);
         Mocks.sqlMock(testResults);
     }
