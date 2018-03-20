@@ -1,3 +1,6 @@
+import com.google.common.collect.Lists;
+import com.google.common.collect.Ordering;
+import edu.emory.mathcs.backport.java.util.Collections;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -7,6 +10,7 @@ import java.lang.Object;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ExcelHelper {
@@ -16,7 +20,16 @@ public class ExcelHelper {
         this.workbook = new HSSFWorkbook();
     }
 
-    public void populateSheet(String sheetName, Map dataToPopulate){
+    public void populateSheet(String sheetName, Map dataToPopulate, String orderBy){
+        Ordering<Map.Entry<String, Integer>> byMapValues = new Ordering<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> left, Map.Entry<String, Integer> right) {
+                return left.getValue().compareTo(right.getValue());
+            }
+        };
+        List<Map.Entry<String, Integer>> sort = Lists.newArrayList(dataToPopulate.entrySet());
+        Collections.sort(sort, byMapValues.reverse());
+
         HSSFSheet sheet = this.workbook.createSheet(sheetName);
 
         int rowNum = 0;
