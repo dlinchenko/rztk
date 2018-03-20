@@ -17,7 +17,7 @@ public class FileHelper {
     private Path resultFileName;
     private Path dir;
 
-    public FileHelper(String fName){
+    FileHelper(String fName){
         this.fName = fName;
         this.resultFileName = makeFile();
     }
@@ -41,7 +41,7 @@ public class FileHelper {
          }
     }
 
-    public void writeResultFile(List<String> strings){
+    void writeResultFile(List<String> strings){
             try {
                 for (String s : strings) {
                     s = s + "\n";
@@ -52,28 +52,24 @@ public class FileHelper {
             }
     }
 
-    public void writeResultsFile(ExcelHelper excel){
+    void writeResultsFile(ExcelHelper excel){
         try{
         HSSFWorkbook workbook = excel.getWorkbook();
         FileOutputStream f = new FileOutputStream(this.resultFileName.toString());
         workbook.write(f);
         f.close();
         }
-        catch (FileNotFoundException e){
-            System.err.print(e);
-        }
         catch (IOException e){
             System.err.print(e);
         }
-
     }
 
-    public Path getResultFilePath() throws Exception {
+    public Path getResultFilePath() {
         if(Files.exists(this.resultFileName)){
             return this.resultFileName;
         }
         else {
-            throw new Exception(String.format("File cannot be found: %s", this.dir.toString()));
+            return null;
         }
     }
 
