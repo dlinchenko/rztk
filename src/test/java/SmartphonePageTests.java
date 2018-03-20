@@ -14,7 +14,7 @@ public class SmartphonePageTests extends BaseTest {
 
     @Test
     public void getAllNamesTest(){
-        List<String> testResults = TestMethods.getAllItemNamesOnPage(driver,testUrl,1);
+        List<String> testResults = TestMethods.getAllItemNamesOnPage(driver,testUrl,3);
 
         FileHelper resultFile =  new FileHelper(testName.getMethodName()+ ".txt");
         resultFile.writeResultFile(testResults);
