@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
+import java.sql.Connection;
 import java.util.*;
 
 public class DetergentPageTest extends BaseTest{
@@ -8,8 +9,7 @@ public class DetergentPageTest extends BaseTest{
 
     @Test
     public void getNamesInPriceRangeTest(){
-        Map testResults = TestMethods.getNamesInPriceRange(driver,testUrl,5,100, 300);
+        Map testResults = TestMethods.getNamesInPriceRange(driver,testUrl,1,100, 300);
         Mocks.sqlMock(testResults);
     }
-
 }
