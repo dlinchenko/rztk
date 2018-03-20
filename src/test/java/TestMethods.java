@@ -1,3 +1,4 @@
+import com.sun.tools.corba.se.idl.toJavaPortable.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -28,7 +29,7 @@ public class TestMethods {
             StorePage page = new StorePage(driver);
             for(WebElement item: page.getAllItemsOnPage()){
                 if(page.isItemTopSeller(item)){
-                    testResults.put(page.getItemName(item), page.getItemPrice(item));
+                    testResults.put(page.getItemName(item), Helpers.getPrice(page.getItemPrice(item)));
                 }
             }
         }
@@ -43,7 +44,7 @@ public class TestMethods {
             for(WebElement item:page.getAllItemsOnPage()){
                 String price = page.getItemPrice(item);
                 if ((Helpers.getPrice(price)>gt) && (Helpers.getPrice(price)<lt)){
-                    testResults.put(page.getItemName(item), page.getItemPrice(item));
+                    testResults.put(page.getItemName(item), Helpers.getPrice(page.getItemPrice(item)));
                 }
             }
         }
