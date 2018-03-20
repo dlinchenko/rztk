@@ -35,12 +35,12 @@ public class SmartphonePageTests extends BaseTest {
 
     @Test
     public void getTopSellerAndNamesInPriceRangeTest(){
-        Map topSellers = TestMethods.getAllTopSellerNamesPricesOnPage(driver, testUrl, 1);
-        Map priceRange = TestMethods.getNamesInPriceRange(driver,testUrl,1,3000, 6000);
-        FileHelper resultFile = new FileHelper(testName.getMethodName() +  ".xsl");
+        Map topSellers = TestMethods.getAllTopSellerNamesPricesOnPage(driver, testUrl, 3);
+        Map priceRange = TestMethods.getNamesInPriceRange(driver,testUrl,5,3000, 6000);
+        FileHelper resultFile = new FileHelper(testName.getMethodName() +  ".xls");
         ExcelHelper excelWorkbook = new ExcelHelper();
         excelWorkbook.populateSheet("TopSellers", topSellers);
-        excelWorkbook.populateSheet("PriceRange", priceRange);
+        excelWorkbook.populateSheet("PriceRange_3000_6000", priceRange);
 
         resultFile.writeResultsFile(excelWorkbook);
         //Mocks.excelFileMock(topSellers);

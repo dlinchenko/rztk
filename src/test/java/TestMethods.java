@@ -1,4 +1,3 @@
-import com.sun.tools.corba.se.idl.toJavaPortable.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
