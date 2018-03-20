@@ -62,17 +62,6 @@ public class MailHelper {
 
     }
 
-    public  void sendMessage(String subject){
-        try{
-            Message message = prepareMessage(subject);
-
-            Transport.send(message);
-        }
-        catch (MessagingException e){
-            System.err.print(e);
-        }
-    }
-
     private Message prepareMessage(String subject){
         try {
             Message message = new MimeMessage(this.session);
@@ -82,7 +71,7 @@ public class MailHelper {
                         InternetAddress.parse(address));
             }
             message.setSubject(subject);
-            message.setText("PFA");
+            message.setText("");
             return message;
 
         } catch (MessagingException|IOException e) {
