@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TestMethods {
+class TestMethods {
 
-    public static List<String> getAllItemNamesOnPage(WebDriver driver, String testUrl, int pageCount){
-        List<String> testResults = new ArrayList<String>();
+    static List<String> getAllItemNamesOnPage(WebDriver driver, String testUrl, int pageCount){
+        List<String> testResults = new ArrayList<>();
         for(String url: Helpers.generateTestUrls(testUrl, pageCount)) {
             driver.get(url);
             StorePage page = new StorePage(driver);
@@ -21,7 +21,7 @@ public class TestMethods {
         return testResults;
     }
 
-    public static Map getAllTopSellerNamesPricesOnPage(WebDriver driver, String testUrl, int pageCount){
+    static Map getAllTopSellerNamesPricesOnPage(WebDriver driver, String testUrl, int pageCount){
         Map testResults = new HashMap();
         for(String url: Helpers.generateTestUrls(testUrl, pageCount)){
             driver.get(url);
@@ -35,7 +35,7 @@ public class TestMethods {
         return testResults;
     }
 
-    public static Map getNamesInPriceRange(WebDriver driver, String testUrl, int pageCount, int gt, int lt){
+    static Map getNamesInPriceRange(WebDriver driver, String testUrl, int pageCount, int gt, int lt){
         Map testResults = new HashMap();
         for(String url: Helpers.generateTestUrls(testUrl,pageCount)){
             driver.get(url);

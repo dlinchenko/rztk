@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class MailHelper {
-
+    //didn't managed to make it working on gmail/outlook
     private String userName = "";
     private String userPassword = "";
     private Properties props = new Properties();
@@ -21,12 +21,14 @@ public class MailHelper {
     //private Message message;
 
     public MailHelper(){
+        //populating connection properties
         this.props.put("mail.smtp.auth", true);
         this.props.put("mail.smtp.starttls.enable", true);
         this.props.put("mail.smtp.host", "smtp.gmail.com");
         this.props.put("mail.smtp.port", "465");
         this.props.put("mail.smtp.ssl.enable", true);
 
+        //creating connection
         this.session = Session.getInstance(this.props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -38,6 +40,7 @@ public class MailHelper {
 
 
     public void sendMessage(Path attachmentPath, String subject, String attachmentName){
+        //generating message with attachment
         try {
             Message message = prepareMessage(subject);
 
@@ -63,6 +66,7 @@ public class MailHelper {
     }
 
     private Message prepareMessage(String subject){
+        //generating message
         try {
             Message message = new MimeMessage(this.session);
             message.setFrom(new InternetAddress(userName));
@@ -81,6 +85,7 @@ public class MailHelper {
     }
 
     private List<String> getEmailsfromFile() throws IOException {
+        //obtaing email addresses to send test files/reports from separate file
         Path dir = Paths.get(System.getProperty("user.dir")+ File.separator + "TestFiles" + File.separator
                 + "emails.txt");
         return Files.readAllLines(dir);

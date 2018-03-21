@@ -3,9 +3,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageObject {
 
+    //following never used however required to have
     public PageObject(){};
 
-    public PageObject(WebDriver driver){
+    PageObject(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 }

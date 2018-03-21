@@ -9,14 +9,12 @@ public class DataBaseHelper {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Where is your MySQL JDBC Driver?");
+        } catch (ClassNotFoundException e) { ;
             e.printStackTrace();
         }
 
         try{
-            Connection conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","rztk","p@ssw0rd");
-            return conn;
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","rztk","p@ssw0rd");
         }
         catch (SQLException e){
             System.err.print(e);

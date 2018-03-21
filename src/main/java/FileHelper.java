@@ -23,6 +23,7 @@ public class FileHelper {
     }
 
     private Path makeFile(){
+        //creating file to save test results
         try{
             this.dir = Paths.get(System.getProperty("user.dir")+ File.separator+"TestResults");
             if (!Files.exists(this.dir)) {
@@ -42,6 +43,7 @@ public class FileHelper {
     }
 
     void writeResultFile(List<String> strings){
+        //writing to text file
             try {
                 for (String s : strings) {
                     s = s + "\n";
@@ -53,6 +55,7 @@ public class FileHelper {
     }
 
     void writeResultsFile(ExcelHelper excel){
+        //writing to excel file
         try{
         HSSFWorkbook workbook = excel.getWorkbook();
         FileOutputStream f = new FileOutputStream(this.resultFileName.toString());

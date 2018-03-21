@@ -19,6 +19,7 @@ class ExcelHelper {
     }
 
     void populateSheet(String sheetName, Map dataToPopulate, String orderBy){
+        //making sort
         Ordering<Map.Entry<String, Integer>> byMapValues = new Ordering<Map.Entry<String, Integer>>() {
             @Override
             public int compare(Map.Entry<String, Integer> left, Map.Entry<String, Integer> right) {
@@ -29,6 +30,7 @@ class ExcelHelper {
         if(orderBy.equals("desc")){ Collections.sort(sortedMap, byMapValues.reverse());}
         else if(orderBy.equals("asc")){Collections.sort(sortedMap, byMapValues);}
 
+        //populating excel sheet
         HSSFSheet sheet = this.workbook.createSheet(sheetName);
 
         int rowNum = 0;
